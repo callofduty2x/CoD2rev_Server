@@ -8,8 +8,8 @@
 
 #define GAME_STRING "CoD2 MP"
 
-#define PRODUCT_VERSION "1.0"
-#define PROTOCOL_VERSION 115
+#define PRODUCT_VERSION "1.3"
+#define PROTOCOL_VERSION 118
 
 // for windows fastcall option
 #define	QDECL

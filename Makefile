@@ -12,7 +12,7 @@ NASMFLAGS=-f win -dWin32 --prefix _
 LLIBS=-static -mwindows -lws2_32 -lwinmm
 else
 NASMFLAGS=-f elf
-LLIBS=-lpthread -lstdc++
+LLIBS=-lpthread -lstdc++ -lc
 endif
 
 # Setup binary names.
@@ -127,7 +127,7 @@ cod2rev: mkdir $(TARGET)
 	$(ASM_QCOMMON_OBJ) $(ASM_SERVER_OBJ) $(ASM_STRINGED_OBJ) $(ASM_UNIVERSAL_OBJ) $(ASM_XANIM_OBJ) \
 	$(BOTLIB_OBJ) $(CLIENTSCR_OBJ) $(GAME_OBJ) $(BGAME_OBJ) $(CGAME_OBJ) $(LIBCOD_OBJ) $(QCOMMON_OBJ) $(SERVER_OBJ) $(STRINGED_OBJ) \
 	$(UNIVERSAL_OBJ) $(XANIM_OBJ) $(LINUX_OBJ) $(WIN32_OBJ) $(WIN32_RES_OBJ) $(ZLIB_OBJ) $(SQLITE_OBJ)
-	$(CXX) $(LFLAGS) -o $@ $^ $(LLIBS)
+	$(CXX) $(LFLAGS)  -ldl -o $@ $^ $(LLIBS) -ldl -static
 
 ifeq ($(OS),Windows_NT)
 mkdir:
